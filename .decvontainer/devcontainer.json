@@ -1,0 +1,50 @@
+{
+  // Nom du conteneur de développement (apparaît dans VS Code)
+  "name": "Devcontainer Feature Development Environment",
+
+  // Image de base sélectionnée (Debian, préparée pour devcontainers)
+  "image": "mcr.microsoft.com/devcontainers/base:debian",
+
+  // Définition des features à installer
+  "features": {
+    // Feature pour les utilitaires de base (git, jq), config utilisateur, màj paquets
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": "false",        // On garde bash par défaut
+      "installOhMyZsh": "false",
+      "upgradePackages": "true",      // Bonne pratique: mettre à jour les paquets au build
+      "username": "vscode",         // Utilise/configure l'utilisateur 'vscode'
+      "uid": "1000",
+      "gid": "1000"
+    },
+  
+    // Feature pour installer la CLI devcontainer elle-même
+    "ghcr.io/devcontainers-extra/features/devcontainers-cli:1": {},
+
+    // Feature pour configurer l'accès au Docker de l'hôte (Docker-outside-of-Docker)
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  },
+
+  // Personnalisation de l'environnement VS Code
+  "customizations": {
+    "vscode": {
+      // Liste des extensions VS Code à installer automatiquement dans le conteneur
+      "extensions": [
+        "ms-azuretools.vscode-docker",    // Gestion UI Docker
+        "foxundermoon.shell-format",    // Formatage scripts Shell (via shfmt)
+        "eamodio.gitlens",              // Améliorations Git
+        "EditorConfig.EditorConfig"     // Support pour les fichiers .editorconfig
+      ]
+    }
+  }
+
+  // --- Options supplémentaires possibles (commentées à titre indicatif) ---
+
+  // Exécuter une commande une fois le conteneur créé et prêt
+  // "postCreateCommand": "echo 'Environnement de développement de features prêt !'",
+
+  // Rediriger des ports du conteneur vers la machine hôte si nécessaire
+  // "forwardPorts": [],
+
+  // Spécifier l'utilisateur avec lequel ouvrir les terminaux et exécuter les commandes
+  // "remoteUser": "vscode" // Normalement géré automatiquement par l'image/common-utils
+}
