@@ -1,0 +1,48 @@
+
+┌ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┐
+|    Dev Container Features   |   
+│           v0.75.0           │
+└ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┘
+
+>  baseImage:         ubuntu:focal
+>  Target Folder:     /workspaces/features
+>  features:          google-cli
+>  workspaceFolder:   /tmp/devcontainercli/container-features-test/1745351037779
+
+⏳ Building test container...
+
+
+🚀 Launched container.
+>  containerId:          3224dab5e753f334298bff5c41789c68876059de4d18abae1a860a5d90ad2b3e
+
+🏃 Starting test(s)...
+
+🧪 Starting 'google-cli' tests...
+
+
+🔄 Testing 'version'
+[37m
+Google Cloud SDK 519.0.0
+bq 2.1.15
+bundled-python3-unix 3.12.8
+core 2025.04.18
+gcloud-crc32c 1.0.0
+gsutil 5.34
+
+
+✅  Passed 'version'!
+
+
+Test Passed!
+🧪 Executing scenarios for feature 'google-cli'...
+⚠️ No scenario file found at '/workspaces/features/test/google-cli/scenarios.json'. Skipping...
+🧪 Executing duplicate test for feature 'google-cli'...
+⚠️ Skipping duplicate test for google-cli because '/workspaces/features/test/google-cli/duplicate.sh' does not exist.
+🧹 Cleaning up 1 test containers...
+🧹 Removing container 3224dab5e753...
+
+
+
+  ================== TEST REPORT ==================
+✅ Passed:      'google-cli'
+

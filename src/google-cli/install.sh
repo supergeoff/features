@@ -53,9 +53,9 @@ install() {
     curl "${scriptUrl}" -o "${scriptTarFile}"
 
     tar -xf "${scriptTarFile}"
-    ./google-cloud-sdk/install.sh --disable-prompts
-
-    rm -rf ./google-cloud-sdk
+    mv "google-cloud-sdk" /usr/local/
+    /usr/local/google-cloud-sdk/install.sh --command-completion true --path-update true
+    
 }
 
 echo "(*) Installing Google CLI..."
