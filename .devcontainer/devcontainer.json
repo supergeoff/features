@@ -9,6 +9,10 @@
   "features": {
     // Feature pour configurer l'accès au Docker
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    // Feature pour installer python
+    "ghcr.io/devcontainers/features/python:1": {
+      "installTools": false
+    },
     // Feature pour installer la CLI devcontainer elle-même
     "ghcr.io/devcontainers-extra/features/devcontainers-cli:1": {}
   },
