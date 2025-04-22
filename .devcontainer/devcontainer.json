@@ -23,7 +23,7 @@
       // Liste des extensions VS Code à installer automatiquement dans le conteneur
       "extensions": [
         "ms-azuretools.vscode-docker",    // Gestion UI Docker
-        "mads-hartmann.bash-ide-vscode"
+        "mads-hartmann.bash-ide-vscode"    // Auto completion bash
       ]
     }
   }
