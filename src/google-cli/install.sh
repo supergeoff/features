@@ -30,10 +30,10 @@ check_packages() {
 
 export DEBIAN_FRONTEND=noninteractive
 
-check_packages curl tar bash-completion
+check_packages curl ca-certificates tar bash-completion
 
 install() {
-    local scriptTarFile=gcloudcli.zip
+    local scriptTarFile=gcloudcli.tar.gz
 
     # See Linux install docs at https://cloud.google.com/sdk/docs/install
     if [ "${VERSION}" != "latest" ]; then
@@ -45,18 +45,17 @@ install() {
         i686) architectureStr=x86 ;;
         arm64) architectureStr=aarch64 ;;
         *)
-            echo "AWS CLI does not support machine architecture '$architecture'. Please use an x86, x86-64 or ARM64 machine."
+            echo "Google CLI does not support machine architecture '$architecture'. Please use an x86, x86-64 or ARM64 machine."
             exit 1
     esac
     local scriptUrl=https://storage.googleapis.com/cloud-sdk-release/google-cloud-cli${versionStr}-linux-${architectureStr}.tar.gz
     
     curl "${scriptUrl}" -o "${scriptTarFile}"
-    curl "${scriptUrl}.sig" -o "${scriptSigFile}"
 
     tar -xf "${scriptTarFile}"
     ./google-cloud-sdk/install.sh --disable-prompts
 
-    rm -rf ./aws
+    rm -rf ./google-cloud-sdk
 }
 
 echo "(*) Installing Google CLI..."
