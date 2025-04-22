@@ -21,7 +21,9 @@
     "ghcr.io/devcontainers-extra/features/devcontainers-cli:1": {},
 
     // Feature pour configurer l'accès au Docker de l'hôte (Docker-outside-of-Docker)
-    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {
+      "moby": false
+    }
   },
 
   // Personnalisation de l'environnement VS Code
