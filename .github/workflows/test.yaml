@@ -16,5 +16,5 @@ jobs:
       - name: "Install latest devcontainer CLI"
         run: npm install -g @devcontainers/cli
 
-      - name: "Testing global scenarios"
+      - name: "Testing all scenarios"
         run: devcontainer features test
