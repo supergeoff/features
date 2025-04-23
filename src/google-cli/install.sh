@@ -54,7 +54,7 @@ install() {
 
     tar -xf "${scriptTarFile}"
     mv "google-cloud-sdk" /usr/local/
-    /usr/local/google-cloud-sdk/install.sh --rc-path "${_REMOTE_USER_HOME}/.bashrc" --command-completion true --path-update true
+    /usr/local/google-cloud-sdk/install.sh --rc-path "/etc/bash.bashrc" --command-completion true --path-update true
     
 }
 
