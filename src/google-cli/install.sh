@@ -30,7 +30,7 @@ check_packages() {
 
 export DEBIAN_FRONTEND=noninteractive
 
-check_packages curl ca-certificates tar bash-completion
+check_packages curl ca-certificates tar bash-completion python3-minimal
 
 install() {
     local scriptTarFile=gcloudcli.tar.gz
