@@ -1,6 +1,9 @@
 {
-    "test_other_user": {
+    "test": {
         "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "google-cli": {}
+        }
         "remoteUser": "node"
     }
 }
