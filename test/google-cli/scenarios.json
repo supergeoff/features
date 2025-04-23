@@ -1,10 +1,4 @@
 {
-    "test": {
-        "image": "mcr.microsoft.com/devcontainers/base:debian",
-        "features": {
-            "google-cli": {}
-        }
-    },
     "test_node_user": {
         "image": "mcr.microsoft.com/devcontainers/typescript-node:latest",
         "features": {
