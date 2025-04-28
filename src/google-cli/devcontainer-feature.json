@@ -18,7 +18,7 @@
         "vscode": {
             "extensions": [
                 "googlecloudtools.cloudcode",
-                "-Google.geminicodeassist"
+                "-google.geminicodeassist"
             ],
             "settings": {
                 "github.copilot.chat.codeGeneration.instructions": [
