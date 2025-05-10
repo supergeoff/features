@@ -4,6 +4,14 @@
   "name": "Nx Next Playwright",
   "documentationURL": "https://github.com/supergeoff/features/tree/main/src/x-next-playwright",
   "description": "Installs Playwright and required dependencies for Nx Next.js projects.",
+  "options": {
+    "version": {
+      "default": "latest",
+      "description": "Select the version of Playwright to install.",
+      "proposals": ["latest"],
+      "type": "string"
+    }
+  },
   "customizations": {
     "vscode": {
       "settings": {
@@ -15,8 +23,5 @@
       }
     }
   },
-  "installsAfter": [
-    "ghcr.io/devcontainers-extra/features/npm-packages",
-    "ghcr.io/devcontainers-extra/features/apt-packages"
-  ]
+  "installsAfter": ["ghcr.io/devcontainers/features/common-utils"]
 }

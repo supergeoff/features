@@ -1,35 +1,28 @@
 {
-    "id": "google-cli",
-    "version": "1.0.0",
-    "name": "Google CLI",
-    "documentationURL": "https://github.com/supergeoff/features/tree/main/src/google-cli",
-    "description": "Installs the Google CLI",
-    "options": {
-        "version": {
-            "type": "string",
-            "proposals": [
-                "latest"
-            ],
-            "default": "latest",
-            "description": "Select or enter a Google CLI version."
-        }
-    },
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "googlecloudtools.cloudcode",
-                "-google.geminicodeassist"
-            ],
-            "settings": {
-                "github.copilot.chat.codeGeneration.instructions": [
-                    {
-                        "text": "This dev container includes the Google CLI and available on the `PATH`"
-                    }
-                ]
-            }
-        }
-    },
-    "installsAfter": [
-        "ghcr.io/devcontainers/features/common-utils"
-    ]
+  "id": "google-cli",
+  "version": "1.0.0",
+  "name": "Google CLI",
+  "documentationURL": "https://github.com/supergeoff/features/tree/main/src/google-cli",
+  "description": "Installs the Google CLI",
+  "options": {
+    "version": {
+      "type": "string",
+      "proposals": ["latest"],
+      "default": "latest",
+      "description": "Select or enter a Google CLI version."
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["googlecloudtools.cloudcode", "-google.geminicodeassist"],
+      "settings": {
+        "github.copilot.chat.codeGeneration.instructions": [
+          {
+            "text": "This dev container includes the Google CLI and available on the `PATH`"
+          }
+        ]
+      }
+    }
+  },
+  "installsAfter": ["ghcr.io/devcontainers/features/common-utils"]
 }

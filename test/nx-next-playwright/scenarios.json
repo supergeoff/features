@@ -2,13 +2,13 @@
   "test": {
     "image": "mcr.microsoft.com/devcontainers/base:debian",
     "features": {
-      "google-cli": {}
+      "nx-next-playwright": {}
     }
   },
   "test_node_user": {
     "image": "mcr.microsoft.com/devcontainers/typescript-node",
     "features": {
-      "google-cli": {}
+      "nx-next-playwright": {}
     },
     "remoteUser": "node"
   }

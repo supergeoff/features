@@ -4,6 +4,6 @@ set -e
 
 source dev-container-features-test-lib
 
-check "version" playwright --version
+check "version" npx playwright --version
 
 reportResults
