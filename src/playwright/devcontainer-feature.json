@@ -14,6 +14,9 @@
   },
   "customizations": {
     "vscode": {
+      "extensions": [
+        "ms-playwright.playwright" // Playwright extension for VS Code
+      ],
       "settings": {
         "github.copilot.chat.codeGeneration.instructions": [
           {
