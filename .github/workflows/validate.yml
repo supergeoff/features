@@ -1,5 +1,6 @@
 name: "Validate devcontainer-feature.json files"
 on:
+  push:
   workflow_dispatch:
   pull_request:
 
