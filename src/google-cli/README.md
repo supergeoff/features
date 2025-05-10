@@ -22,6 +22,7 @@ Installs the Google CLI
 ### VS Code Extensions
 
 - `googlecloudtools.cloudcode`
+- `-google.geminicodeassist`
 
 
 
