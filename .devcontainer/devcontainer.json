@@ -1,26 +1,40 @@
 {
-  // Nom du conteneur de développement (apparaît dans VS Code)
+  // Name of the development container (appears in VS Code)
   "name": "Devcontainer Feature Development Environment",
 
-  // Image de base sélectionnée (Debian, préparée pour devcontainers)
+  // Selected base image (Debian, prepared for devcontainers)
   "image": "mcr.microsoft.com/devcontainers/base:debian",
 
-  // Définition des features à installer
+  // Definition of features to install
   "features": {
-    // Feature pour configurer l'accès au Docker
+    // Feature to configure Docker access
     "ghcr.io/devcontainers/features/docker-in-docker:latest": {},
-    // Feature pour installer la CLI devcontainer elle-même
+    // Feature to install the devcontainer CLI itself
     "ghcr.io/devcontainers-extra/features/devcontainers-cli:latest": {}
   },
 
-  // Personnalisation de l'environnement VS Code
+  // VS Code environment customization
   "customizations": {
     "vscode": {
-      // Liste des extensions VS Code à installer automatiquement dans le conteneur
+      // List of VS Code extensions to automatically install in the container
       "extensions": [
-        "ms-azuretools.vscode-docker",    // Gestion UI Docker
-        "mads-hartmann.bash-ide-vscode"    // Auto completion bash
-      ]
+        "ms-azuretools.vscode-docker",    // Docker UI management
+        "mads-hartmann.bash-ide-vscode",    // Bash auto-completion
+        "esbenp.prettier-vscode", // Prettier for code formatting
+        "alexanderbast.vscode-snazzy", // Snazzy color theme
+        "loilo.snazzy-light", // Snazzy Light color theme
+        "helgardrichard.helium-icon-theme" // Helium icon theme
+      ],
+      "settings": {
+        // Sets Prettier as the default formatter
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        // Enables format on save
+        "editor.formatOnSave": true,
+        // Applies the Material Design icon theme
+        "workbench.iconTheme": "helium-icon-theme",
+        // Applies the Material Design color theme for the UI
+        "workbench.colorTheme": "Snazzy Light"
+      }
     }
   }
 }

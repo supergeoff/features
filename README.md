@@ -1,23 +1,23 @@
 # Features Repository
 
-Ce dépôt contient des fonctionnalités pour les conteneurs de développement Devcontainer. Chaque fonctionnalité est conçue pour être facilement intégrée dans un environnement de développement basé sur Devcontainer.
+This repository contains features for Devcontainer development containers. Each feature is designed to be easily integrated into a Devcontainer-based development environment.
 
-## Structure du Répertoire
+## Directory Structure
 
-- **`src/`** : Contient les définitions des fonctionnalités.
+- **`src/`** : Contains the feature definitions.
 
-- **`test/`** : Contient les tests pour valider les fonctionnalités.
+- **`test/`** : Contains tests to validate the features.
 
 
-## Fonctionnalités Disponibles
+## Available Features
 
 ### Google CLI
 
-- **Description** : Installe la Google CLI et la rend disponible sur le `PATH`.
+- **Description** : Installs the Google CLI and makes it available on the `PATH`.
 - **Options** :
-  - `version` : Permet de sélectionner ou d'entrer une version spécifique de la Google CLI (par défaut : `latest`).
+  - `version` : Allows you to select or enter a specific version of the Google CLI (default: `latest`).
 
-#### Exemple d'Utilisation
+#### Usage Example
 
 ```json
 "features": {
@@ -27,22 +27,21 @@ Ce dépôt contient des fonctionnalités pour les conteneurs de développement D
 
 ## Tests
 
-Les tests pour chaque fonctionnalité sont situés dans le répertoire `test/`.
+Tests for each feature are located in the `test/` directory.
 
-## Configuration du Conteneur de Développement
+## Development Container Configuration
 
-Le fichier `.devcontainer/devcontainer.json` configure l'environnement de développement avec les fonctionnalités suivantes :
-- **Docker-in-Docker** : Permet l'accès à Docker dans le conteneur.
-- **Python** : Installe Python sans outils supplémentaires.
-- **Devcontainers CLI** : Installe la CLI Devcontainer.
+The `.devcontainer/devcontainer.json` file configures the development environment with the following features:
+- **Docker-in-Docker** : Enables access to Docker within the container.
+- **Devcontainers CLI** : Installs the Devcontainer CLI.
 
-### Extensions VS Code
+### VS Code Extensions
 
-Les extensions suivantes sont automatiquement installées dans le conteneur :
-- `ms-azuretools.vscode-docker` : Gestion de Docker via l'interface utilisateur.
-- `mads-hartmann.bash-ide-vscode` : Auto-complétion pour les scripts Bash.
+The following extensions are automatically installed in the container:
+- `ms-azuretools.vscode-docker` : Manage Docker via the user interface.
+- `mads-hartmann.bash-ide-vscode` : Auto-completion for Bash scripts.
 
 ## Notes
 
-- Ce dépôt est compatible avec les distributions Linux supportées par `devcontainers/features/common-utils`.
-- Pour plus de détails sur chaque fonctionnalité, consultez les fichiers `README.MD` dans leurs répertoires respectifs.
+- This repository is compatible with Linux distributions supported by `devcontainers/features/common-utils`.
+- For more details on each feature, see the `README.MD` files in their respective directories.

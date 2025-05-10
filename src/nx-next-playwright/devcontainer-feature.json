@@ -1,0 +1,19 @@
+{
+  "id": "nx-next-playwright",
+  "version": "1.0.0",
+  "name": "Nx Next Playwright",
+  "documentationURL": "https://github.com/supergeoff/features/tree/main/src/x-next-playwright",
+  "description": "Installs Playwright and required dependencies for Nx Next.js projects.",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "github.copilot.chat.codeGeneration.instructions": [
+          {
+            "text": "This dev container includes Playwright and requiered dependencies"
+          }
+        ]
+      }
+    }
+  },
+  "installsAfter": ["ghcr.io/devcontainers/features/common-utils"]
+}
