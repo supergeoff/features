@@ -1,0 +1,35 @@
+{
+  "id": "playwright",
+  "version": "1.0.0",
+  "name": "Playwright",
+  "documentationURL": "https://github.com/supergeoff/features/tree/main/src/playwright",
+  "description": "Installs Playwright and required dependencies.",
+  "options": {
+    "version": {
+      "default": "latest",
+      "description": "Select the version of Playwright to install.",
+      "proposals": ["latest"],
+      "type": "string"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "github.copilot.chat.codeGeneration.instructions": [
+          {
+            "text": "This dev container includes Playwright and requiered dependencies"
+          }
+        ]
+      }
+    }
+  },
+  "dependsOn": {
+    "ghcr.io/devcontainers/features/node": {}
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers-extra/features/npm-package",
+    "ghcr.io/devcontainers/features/node",
+    "ghcr.io/devcontainers-extra/features/apt-get-packages",
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}

@@ -11,19 +11,21 @@ source ./library_scripts.sh
 # of the script
 ensure_nanolayer nanolayer_location "v0.5.5"
 
-# Example nanolayer installation via devcontainer-feature
+echo "Installing TzData"
+$nanolayer_location \
+    install \
+    devcontainer-feature \
+    "ghcr.io/devcontainers-extra/features/apt-get-packages" \
+    --option packages='tzdata'
+
 echo "Installing Playwright"
 $nanolayer_location \
     install \
     devcontainer-feature \
     "ghcr.io/devcontainers-extra/features/npm-package" \
-    --option package='playwright' --option version="$VERSION"
+    --option package='playwright' --option version="${VERSION:-latest}"
 
-# --- Install Playwright browser system dependencies ---
-$nanolayer_location \
-    install \
-    devcontainer-feature \
-    "ghcr.io/devcontainers-extra/features/apt-get-packages" \
-    --option packages='libnss3,libnspr4,libdbus-1-3,libatk1.0-0,libatk-bridge2.0-0,libcups2,libxkbcommon0,libatspi2.0-0,libxcomposite1,libxdamage1,libxfixes3,libxrandr2,libgbm1,libasound2'
+export DEBIAN_FRONTEND=noninteractive
+npx --yes playwright install --with-deps
 
 echo 'Done!'

@@ -2,13 +2,13 @@
   "test": {
     "image": "mcr.microsoft.com/devcontainers/base:debian",
     "features": {
-      "nx-next-playwright": {}
+      "playwright": {}
     }
   },
   "test_node_user": {
     "image": "mcr.microsoft.com/devcontainers/typescript-node",
     "features": {
-      "nx-next-playwright": {}
+      "playwright": {}
     },
     "remoteUser": "node"
   }
