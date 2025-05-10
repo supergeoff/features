@@ -17,6 +17,12 @@ Installs Playwright and required dependencies.
 |-----|-----|-----|-----|
 | version | Select the version of Playwright to install. | string | latest |
 
+## Customizations
+
+### VS Code Extensions
+
+- `ms-playwright.playwright`
+
 
 
 ---
