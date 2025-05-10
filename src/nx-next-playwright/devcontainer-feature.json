@@ -15,5 +15,8 @@
       }
     }
   },
-  "installsAfter": ["ghcr.io/devcontainers/features/common-utils"]
+  "installsAfter": [
+    "ghcr.io/devcontainers-extra/features/npm-packages",
+    "ghcr.io/devcontainers-extra/features/apt-packages"
+  ]
 }
