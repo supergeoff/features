@@ -1,0 +1,3 @@
+[submodule ".devcontainerlib"]
+	path = .devcontainerlib
+	url = https://github.com/supergeoff/devcontainerlib.git
