@@ -1,11 +1,5 @@
 {
-  "test": {
-    "image": "mcr.microsoft.com/devcontainers/base:debian",
-    "features": {
-      "playwright": {}
-    }
-  },
-  "test_node_user": {
+  "test_other_user": {
     "image": "mcr.microsoft.com/devcontainers/typescript-node",
     "features": {
       "playwright": {}

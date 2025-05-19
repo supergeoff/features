@@ -8,7 +8,9 @@
     "version": {
       "default": "latest",
       "description": "Select the version of Playwright to install.",
-      "proposals": ["latest"],
+      "proposals": [
+        "latest"
+      ],
       "type": "string"
     }
   },
@@ -31,7 +33,6 @@
   },
   "installsAfter": [
     "ghcr.io/devcontainers-extra/features/npm-package",
-    "ghcr.io/devcontainers/features/node",
     "ghcr.io/devcontainers-extra/features/apt-get-packages",
     "ghcr.io/devcontainers/features/common-utils"
   ]

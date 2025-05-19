@@ -1,0 +1,10 @@
+{
+    "test_packages": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "go-packages": {
+                "packages": "github.com/magefile/mage,github.com/air-verse/air@v1.61.5"
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "test_package": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "go-package": {
+                "version": "latest",
+                "package": "github.com/magefile/mage"
+            }
+        }
+    },
+    "test_specific_version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "go-package": {
+                "version": "1.61.5",
+                "package": "github.com/air-verse/air"
+            }
+        }
+    },
+    "test_other_user": {
+        "image": "mcr.microsoft.com/devcontainers/typescript-node",
+        "features": {
+            "go-package": {
+                "version": "latest",
+                "package": "github.com/spf13/cobra-cli"
+            }
+        },
+        "remoteUser": "node"
+    }
+}

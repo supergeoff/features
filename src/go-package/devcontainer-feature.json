@@ -1,0 +1,30 @@
+{
+    "name": "Go Package",
+    "id": "go-package",
+    "version": "1.0.0",
+    "description": "Installs a Go command globally from a package path using 'go install'. Ensures the GOBIN (default /go/bin) is user-accessible.",
+    "documentationURL": "https://github.com/your-repo/features/tree/main/src/go-package",
+    "options": {
+        "package": {
+            "type": "string",
+            "proposals": [
+                "golang.org/x/tools/cmd/goimports",
+                "github.com/spf13/cobra-cli",
+                "google.golang.org/protobuf/cmd/protoc-gen-go"
+            ],
+            "default": "",
+            "description": "Specify the Go package path for the package to install (e.g., 'golang.org/x/tools/cmd/goimports')."
+        },
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest"
+            ],
+            "default": "latest",
+            "description": "Select the version of the Go package to install (e.g., 'latest', 'v1.2.3')"
+        }
+    },
+    "dependsOn": {
+        "ghcr.io/devcontainers/features/go": {}
+    }
+}
