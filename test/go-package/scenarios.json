@@ -21,7 +21,7 @@
         "image": "mcr.microsoft.com/devcontainers/typescript-node",
         "features": {
             "go-package": {
-                "version": "latest",
+                "version": "v1.3.0",
                 "package": "github.com/spf13/cobra-cli"
             }
         },
