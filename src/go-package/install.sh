@@ -1,6 +1,18 @@
 #!/usr/bin/env bash
 set -e
 
+# Define log file path
+LOG_FILE="/tmp/devcontainer_feature_go-package_install.log"
+
+# Clear previous log and redirect stdout and stderr to tee
+# tee -i appends to the file and ignores interrupt signals
+# >(tee -a "$LOG_FILE") pipes stdout to tee which outputs to console and file
+# 2>&1 redirects stderr to stdout
+exec > >(tee -a "$LOG_FILE") 2>&1
+
+echo "--- Starting go-packages feature installation ($(date)) ---"
+echo "Logging output to $LOG_FILE"
+
 PACKAGE_NAME="${PACKAGE:-""}"
 PACKAGE_VERSION="${VERSION:-"latest"}"
 
