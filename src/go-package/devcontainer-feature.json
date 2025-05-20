@@ -1,7 +1,7 @@
 {
     "name": "Go Package",
     "id": "go-package",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Installs a Go command globally from a package path using 'go install'. Ensures the GOBIN (default /go/bin) is user-accessible.",
     "documentationURL": "https://github.com/your-repo/features/tree/main/src/go-package",
     "options": {

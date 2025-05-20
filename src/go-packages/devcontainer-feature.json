@@ -1,7 +1,7 @@
 {
   "name": "Go Packages",
   "id": "go-packages",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "documentationURL": "http://github.com/supergeoff/features/tree/main/src/go-packages",
   "description": "Installs go packages globally.",
   "options": {
