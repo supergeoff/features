@@ -1,18 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-# Define log file path
-LOG_FILE="/tmp/devcontainer_feature_go-package_install.log"
-
-# Clear previous log and redirect stdout and stderr to tee
-# tee -i appends to the file and ignores interrupt signals
-# >(tee -a "$LOG_FILE") pipes stdout to tee which outputs to console and file
-# 2>&1 redirects stderr to stdout
-exec > >(tee -a "$LOG_FILE") 2>&1
-
-echo "--- Starting go-packages feature installation ($(date)) ---"
-echo "Logging output to $LOG_FILE"
-
 PACKAGE_NAME="${PACKAGE:-""}"
 PACKAGE_VERSION="${VERSION:-"latest"}"
 
@@ -26,18 +14,6 @@ if [ "$(id -u)" -ne 0 ]; then
     echo -e "Error: This script must be run as root, ensure the feature is run by root."
     exit 1
 fi
-
-check_packages() {
-    # This is part of devcontainers-extra script library
-    # source: https://github.com/devcontainers-extra/features/tree/v1.1.8/script-library
-    if ! dpkg -s "$@" >/dev/null 2>&1; then
-        if [ "$(find /var/lib/apt/lists/* | wc -l)" = "0" ]; then
-            echo "Running apt-get update..."
-            apt-get update -y
-        fi
-        apt-get -y install --no-install-recommends "$@"
-    fi
-}
 
 install_via_go_install() {
 
@@ -120,26 +96,25 @@ install_via_go_install() {
     TARGET_GOBIN="${TARGET_GOPATH}/bin"     # Binaries will be installed here
     TARGET_GOCACHE="${TARGET_GOPATH}/cache" # Go build cache
 
-    # Extract the binary name from the tool path.
-    # This handles common Go tool path patterns:
-    # 1. Standard path: "golang.org/x/tools/cmd/godoc" -> "godoc"
-    # 2. Simple name: "mvdan.cc/gofumpt" -> "gofumpt"
-    # 3. Path with version suffix: "github.com/golangci/golangci-lint/v2" -> "golangci-lint"
-    # 4. Name with @version suffix: "tool@v1.2.3" -> "tool"
-    
-    potential_last_segment=$(basename "$tool_path")
+    # Extract the binary name from the package path.
+    # We use 'package_arg' (e.g., "github.com/magefile/mage") and apply these rules:
+    # 1. If the path has "/cmd/", the binary name is the part after "/cmd/".
+    # 2. If the path does NOT have "/cmd/", the binary name is the last segment.
+    # Examples:
+    # - "golang.org/x/tools/cmd/godoc" -> "godoc"
+    # - "mvdan.cc/gofumpt" -> "gofumpt"
+    # - "github.com/golangci/golangci-lint/v2" -> "v2" (corrected below)
+    # - "github.com/magefile/mage" -> "mage"
 
-    # Check if the last path segment is a version (e.g., v2, v3)
-    # and the tool_path contains directory separators.
-    # Corrected regex: ^v[0-9]+$
-    if [[ "$potential_last_segment" =~ ^v[0-9]+$ && "$tool_path" == *"/"* ]]; then
-        # If so, the binary name is the directory name before the version segment
-        # e.g., "path/to/tool/v2" -> "tool"
-        binary_name=$(basename "$(dirname "$tool_path")")
+    if [[ "$package_arg" == *"cmd/"* ]]; then
+        binary_name=$(echo "$package_arg" | sed 's:.*/cmd/::')
     else
-        # Otherwise, the last segment is the starting point for the binary name
-        # e.g., "path/to/tool" -> "tool", or "tool@version" -> "tool@version"
-        binary_name="$potential_last_segment"
+        binary_name=$(basename "$package_arg")
+    fi
+
+    # Special case: if the last segment is a version (e.g., "v2"), use the directory name before it.
+    if [[ "$binary_name" =~ ^v[0-9]+$ ]]; then
+        binary_name=$(basename "$(dirname "$package_arg")")
     fi
 
     # Remove any @version suffix from the determined binary name
