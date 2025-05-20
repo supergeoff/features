@@ -120,10 +120,31 @@ install_via_go_install() {
     TARGET_GOBIN="${TARGET_GOPATH}/bin"     # Binaries will be installed here
     TARGET_GOCACHE="${TARGET_GOPATH}/cache" # Go build cache
 
-    # --- Check if package is already installed ---
-    # Determine the expected binary name (usually the last part of the package path)
-    local binary_name
-    binary_name=$(basename "${package_arg}")
+    # Extract the binary name from the tool path.
+    # This handles common Go tool path patterns:
+    # 1. Standard path: "golang.org/x/tools/cmd/godoc" -> "godoc"
+    # 2. Simple name: "mvdan.cc/gofumpt" -> "gofumpt"
+    # 3. Path with version suffix: "github.com/golangci/golangci-lint/v2" -> "golangci-lint"
+    # 4. Name with @version suffix: "tool@v1.2.3" -> "tool"
+    
+    potential_last_segment=$(basename "$tool_path")
+
+    # Check if the last path segment is a version (e.g., v2, v3)
+    # and the tool_path contains directory separators.
+    # Corrected regex: ^v[0-9]+$
+    if [[ "$potential_last_segment" =~ ^v[0-9]+$ && "$tool_path" == *"/"* ]]; then
+        # If so, the binary name is the directory name before the version segment
+        # e.g., "path/to/tool/v2" -> "tool"
+        binary_name=$(basename "$(dirname "$tool_path")")
+    else
+        # Otherwise, the last segment is the starting point for the binary name
+        # e.g., "path/to/tool" -> "tool", or "tool@version" -> "tool@version"
+        binary_name="$potential_last_segment"
+    fi
+
+    # Remove any @version suffix from the determined binary name
+    # e.g., "tool@v1.2.3" -> "tool", or "gopls@latest" -> "gopls"
+    binary_name=${binary_name%@*}
     local expected_binary_path="${TARGET_GOBIN}/${binary_name}"
 
     echo "Checking if ${package_arg} (binary: ${binary_name}) is already installed in ${TARGET_GOBIN}..."

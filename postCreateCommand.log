@@ -1,14 +1,4 @@
-
-added 1 package in 1s
   installed package shfmt-py 3.11.0.2, installed using Python 3.11.11
   These apps are now globally available
     - shfmt
-explainshell
-explainshell
-c6ddddc02940ecea1428835fc87988a79ce257fe2988b9506a8baaa7bb70dade
-pre-commit installed at .git/hooks/pre-commit
-[INFO][m Initializing environment for https://github.com/pre-commit/pre-commit-hooks.
-[43;30m[WARNING][m repo `https://github.com/pre-commit/pre-commit-hooks` uses deprecated stage names (commit, push) which will be removed in a future version.  Hint: often `pre-commit autoupdate --repo https://github.com/pre-commit/pre-commit-hooks` will fix this.  if it does not -- consider reporting an issue to that repo.
-[INFO][m Installing environment for https://github.com/pre-commit/pre-commit-hooks.
-[INFO][m Once installed this environment will be reused.
-[INFO][m This may take a few minutes...
+ee256a757e84f141bb2a4dc0ec735db3bce6bbaa031ce58e531226df6ec152cd
